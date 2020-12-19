@@ -1,22 +1,40 @@
-import './Form.css';
-import Summary from './Summary/Summary'
+import "./Form.css";
+import Summary from "./Summary/Summary";
 
-const Form = () =>{
-  return(
+const Form = ({
+  caloriesInput,
+  ingredientsInput,
+  handleInputCalories,
+  handleInputIngrendients,
+  handleClickCalories,
+  handleClickIngredients,
+}) => {
+  return (
     <div className="form">
-        <div className="field">
-            <input type="text" placeholder="Type how many calories" />
-            <button className="add"><i class="fas fa-check-circle fa-2x"></i></button>
-        </div>
+      <form>
+        <input
+          type="text"
+          placeholder="how many calories"
+          value={caloriesInput}
+          onChange={handleInputCalories}
+        />
+        <button className="btn_add" onClick={handleClickCalories}>
+          <i class="fas fa-check-circle fa-2x"></i>
+        </button>
 
-        <div className="field">
-            <input type="text" placeholder="Type how many calories" />
-            <button className="add"><i class="fas fa-check-circle fa-2x"></i></button>
-        </div>
-
-        <Summary />
+        <input
+          type="text"
+          placeholder="how many calories"
+          value={ingredientsInput}
+          onChange={handleInputIngrendients}
+        />
+        <button className="btn_add" onClick={handleClickIngredients}>
+          <i class="fas fa-check-circle fa-2x"></i>
+        </button>
+      </form>
+      <Summary />
     </div>
-  )
-}
+  );
+};
 
 export default Form;
